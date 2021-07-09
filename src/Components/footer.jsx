@@ -2,13 +2,13 @@ import React from 'react'
 
 const Footer = () => {
     return ( 
-        <footer className="pt-4 my-md-5 pt-md-5 border-top bg-dark text-light">
-            <div className="row">
+        <footer className="pt-4  pt-md-5 px-md-3 border-top bg-dark sticky-bottom text-light">
+            <div className="row container">
                 <div className="col-12 col-md" style={{paddingLeft:60}}>
                     <h2 className="mb-2" style={{paddingLeft:40,paddingTop:50}}><span className="text-primary">Safe</span> courier</h2>
                     <small className="d-block mb-3 text-muted" style={{paddingLeft:40}}>&copy; 2021</small>
                 </div>
-                <div className="col-6 col-md">
+                <div className="col-6 col-md col-sm">
                     <h5>About us</h5>
                     <ul className="list-unstyled text-small">
                     <li className="mb-1"><p className="link-secondary text-decoration-none">Vision: To be able to deliver parcel all over the world</p></li>
@@ -17,7 +17,7 @@ const Footer = () => {
                     <li className="mb-1"><p className="link-secondary text-decoration-none">Company was founded in 2021 when the need to send emergency parcels to people</p></li>
                     </ul>
                 </div>
-                <div className="col-6 col-md">
+                <div className="col-6 col-md col-sm">
                     <h5>Resources</h5>
                     <ul className="list-unstyled text-small">
                     <li className="mb-1"><p className="link-secondary text-decoration-none">One Access our Api</p></li>
@@ -26,7 +26,7 @@ const Footer = () => {
                     <li className="mb-1"><p className="link-secondary text-decoration-none">Getting started as a normal user</p></li>
                     </ul>
                 </div>
-                <div className="col-6 col-md">
+                <div className="col-6 col-md col-sm">
                     <h5>Contacts</h5>
                     <ul className="list-unstyled text-small">
                     <li className="mb-1"><p className="link-secondary text-decoration-none">Email: safecourier@info.com</p></li>
