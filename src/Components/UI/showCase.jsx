@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 import img from '../../img/showcase.svg'
 
@@ -12,7 +13,7 @@ const ShowCase = () => {
                         <p className="lead my-4">
                             Our estimed client we would what to help know or atleast help you estimate how much or the effluence of your parcel weight to the price or much needed. Not to forget also the distance between the locations
                         </p>
-                        <button className="btn btn-primary btn-lg">Get Started</button>
+                        <Link to="/signup" className="btn btn-primary btn-lg">Get Started</Link>
                     </div>
                     <img className="img-fluid w-50 d-none d-sm-block" src={img} alt="show case"/>
                 </div>

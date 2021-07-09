@@ -1,32 +1,49 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { Fragment } from 'react'
+import { NavLink } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({user}) => {
     return ( 
-        <nav className="navbar navbar-expand-lg bg-dark navbar-dark py-3">
+        <nav className="navbar navbar-expand-lg sticky-top bg-dark navbar-dark py-3">
             <div className="container">
-                
-                <Link to="/home" className="navbar-brand"><span className="text-primary">Safe</span> courier</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <NavLink to="/" className="navbar-brand"><span className="text-primary">Safe</span> courier</NavLink>
+                <button className="navbar-toggler text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navmenu">
                     <ul className="navbar-nav ms-auto">
+                       {(user && user.isAdmin ===false) && 
+                        <Fragment>
                         <li className="nav-item">
-                            <a href="#parcels" className="nav-link">Parcels</a>
+                            <NavLink to={`/users/${user._id}/parcels`} className="nav-link">Parcels</NavLink>
                         </li>
-                        <li className="nav-item">
-                            <a href="#users" className="nav-link">Users</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#login" className="nav-link">Login</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#signup" className="nav-link">Signup</a>
-                        </li>
-                        <li className="nav-item">
-                            <a href="#logout" className="nav-link">Logout</a>
-                        </li>
+                        </Fragment>
+                       } 
+                       {!user && 
+                        <Fragment>
+                            <li className="nav-item">
+                                <NavLink to="/login" className="nav-link">Login</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to="/signup" className="nav-link">Signup</NavLink>
+                            </li>
+                        </Fragment>
+                       }
+                      {user && 
+                        <Fragment>
+                            {(user && user.isAdmin) ? <small className="text-primary"><strong>Admin</strong></small> : ""}
+                            <li className="nav-item">
+                                <NavLink className="nav-link " to={`/user/${user._id}`}>{user.name}</NavLink>
+                            </li>
+                            {user.isAdmin && 
+                                <li className="nav-item">
+                                    <NavLink className="nav-link " to="/admin">Dashboad</NavLink>
+                                </li>
+                            }
+                             <li className="nav-item">
+                                <NavLink to="/logout" className="nav-link">Logout</NavLink>
+                            </li>
+                        </Fragment>
+                      }
                     </ul>
                 </div>
             </div>
